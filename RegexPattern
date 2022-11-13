@@ -1,0 +1,16 @@
+      {
+        "intent": "Menu",
+        "pattern": "[m][e][n][u|ü]"
+      },
+      {
+        "intent": "Hallo",
+        "pattern": "^Hallo$|^Hey$|^Moin$|^Tach$|^Tag$|^Hello$|Bonjour|^Hi$"
+      },
+      {
+        "intent": "Bye",
+        "pattern": "Ciao|Tschö|Tschüss[.]|Tschau|Bye|Byee|Adios|Ciao Kakao"
+      },
+      {
+        "intent": "WieGehts",
+        "pattern": "Wie geht.s?$|Wie gehts|wie gehts wie stehts|Wie geht's wie stehts?|Wie geht's|How are you"
+      },
