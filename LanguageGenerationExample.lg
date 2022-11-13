@@ -1,0 +1,46 @@
+[import](common.lg)
+
+# ChoiceInput_Prompt_zbWkXw()
+[Activity
+    Text = ${ChoiceInput_Prompt_zbWkXw_text()}
+]
+
+# ChoiceInput_Prompt_zbWkXw_text()
+- Welcome to the menu! Where would you like to go?
+# SendActivity_ibFak4()
+[Activity
+    Text = ${SendActivity_ibFak4_text()}
+]
+
+# SendActivity_ibFak4_text()
+- ```You didn't choose anything 🥺 Enter "menu", to get to the menu.```
+
+# Template_a()
+-Help & Options
+# Template_b()
+-Mission Overview 🦸​🛡️
+# Template_c()
+-Report issue
+# Template_d()
+- Close ❌​
+# Template_f()
+-Yes, please.
+# Template_g()
+-No thanks!
+# Template_h()
+-Yes, see you later
+# Template_i()
+-No, keep going
+# SendActivity_sS5DjC_text()
+- Simply use this form if you want to report an issue:
+# SendActivity_sS5DjC()
+[Activity
+    Text = ${SendActivity_sS5DjC_text()}
+]
+
+# SendActivity_TC7tp8_text()
+- https://forms.microsoft.com/r/v3snR0NS0R
+# SendActivity_TC7tp8()
+[Activity
+    Text = ${SendActivity_TC7tp8_text()}
+]
