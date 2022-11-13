@@ -1,0 +1,59 @@
+[import](common.lg)
+
+# TextInput_Prompt_j5Uz9q()
+[Activity
+    Attachments = ${json(TextInput_Prompt_j5Uz9q_attachment_j227bz())}
+]
+
+# TextInput_Prompt_j5Uz9q_attachment_j227bz()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "You've unlocked ${count(user.extrasOpen)} ${if(equals(count(user.extrasOpen),1), "minigame", "minigames")}.",
+            "wrap": true,
+            "size": "Large",
+            "weight": "Bolder"
+        },
+        {
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "Input.ChoiceSet",
+                            "choices": ${user.extrasOpen},
+                            "placeholder": "Please select",
+                            "id": "mission",
+                            "label": "Minigames 🎮​"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Confirm",
+            "data": {
+            "x": 0
+        }
+        },
+        {
+           "type": "Action.Submit", 
+            "title": "Back to main menu",
+            "id":"submit",
+            "data": {
+            "x": 2
+        }
+        }
+    ]
+}```
