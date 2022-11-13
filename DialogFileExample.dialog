@@ -1,0 +1,254 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "JujmEL",
+    "name": "Menu",
+    "comment": "by Saskia\nMenu \ngerman\ncurrently in use: yes"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "cRkDXZ"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "zbWkXw"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 0,
+          "alwaysPrompt": false,
+          "allowInterruptions": true,
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "prompt": "${ChoiceInput_Prompt_zbWkXw()}",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or ",
+            "inlineOr": " or ",
+            "inlineSeparator": ", "
+          },
+          "property": "dialog.menu",
+          "style": "heroCard",
+          "recognizerOptions": {
+            "recognizeOrdinals": true,
+            "recognizeNumbers": true
+          },
+          "choices": "${Template_a()}|${Template_b()}|${Template_c()}|${Template_d()}",
+          "outputFormat": "index"
+        },
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "Ne6Kwc"
+          },
+          "default": [],
+          "condition": "dialog.menu",
+          "cases": [
+            {
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "gwbFXU"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Menu_Help"
+                },
+                {
+                  "$kind": "Microsoft.EndDialog",
+                  "$designer": {
+                    "id": "WkME5V"
+                  }
+                }
+              ],
+              "value": "0"
+            },
+            {
+              "value": "1",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "4P5L7F"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "ModuleOverview"
+                },
+                {
+                  "$kind": "Microsoft.EndDialog",
+                  "$designer": {
+                    "id": "UljXAS"
+                  }
+                }
+              ]
+            },
+            {
+              "value": "2",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "sS5DjC"
+                  },
+                  "activity": "${SendActivity_sS5DjC()}"
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "TC7tp8"
+                  },
+                  "activity": "${SendActivity_TC7tp8()}"
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "Ygj0H2"
+                  },
+                  "activity": "${SendActivity_Ygj0H2()}"
+                },
+                {
+                  "$kind": "Microsoft.ConfirmInput",
+                  "$designer": {
+                    "id": "4aUtTD"
+                  },
+                  "defaultLocale": "en-us",
+                  "disabled": false,
+                  "maxTurnCount": 1000,
+                  "alwaysPrompt": true,
+                  "allowInterruptions": true,
+                  "prompt": "${ConfirmInput_Prompt_4aUtTD()}",
+                  "unrecognizedPrompt": "",
+                  "invalidPrompt": "",
+                  "defaultValueResponse": "",
+                  "choiceOptions": {
+                    "includeNumbers": true,
+                    "inlineOrMore": ", or ",
+                    "inlineOr": " or "
+                  },
+                  "property": "dialog.bugConfirm",
+                  "style": "heroCard",
+                  "confirmChoices": "${Template_f()}|${Template_g()}"
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "VqTw2Q"
+                  },
+                  "condition": "=if(dialog.bugConfirm, true, false)",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "Npx4q2"
+                      },
+                      "activity": "${SendActivity_Npx4q2()}"
+                    },
+                    {
+                      "$kind": "Microsoft.RepeatDialog",
+                      "$designer": {
+                        "id": "Iuml5m"
+                      },
+                      "activityProcessed": true
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "GbAvLq"
+                      },
+                      "activity": "${SendActivity_GbAvLq()}"
+                    },
+                    {
+                      "$kind": "Microsoft.EndDialog",
+                      "$designer": {
+                        "id": "ntkucC"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "value": "3",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "jTGwSN"
+                  },
+                  "activity": "${SendActivity_jTGwSN()}"
+                },
+                {
+                  "$kind": "Microsoft.EndDialog",
+                  "$designer": {
+                    "id": "X99q4L"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "EHlcN1",
+        "name": "Cancel"
+      },
+      "intent": "Cancel",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "QOZW3u"
+          },
+          "activityProcessed": true,
+          "dialog": "CancelDialog"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "5vdtbM",
+        "name": "Help"
+      },
+      "intent": "Help",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "Q4VsLb"
+          },
+          "activityProcessed": true,
+          "dialog": "Menu_Help"
+        }
+      ]
+    }
+  ],
+  "generator": "Menu.lg",
+  "recognizer": {
+    "$kind": "Microsoft.RegexRecognizer",
+    "intents": [
+      {
+        "intent": "Cancel",
+        "pattern": "Cancel|Abbrechen"
+      },
+      {
+        "intent": "Help",
+        "pattern": "Hilfe|help"
+      }
+    ]
+  },
+  "id": "Menu"
+}
